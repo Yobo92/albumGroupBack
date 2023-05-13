@@ -1,30 +1,31 @@
-import bodyParser from "body-parser";
-import { json } from 'body-parser';
-import express, {Request, Response} from "express";
-import mongoose from 'mongoose';
-import { signupUserRouter } from './routes/signupUser';
-const app = express();
-app.use(json());
-const port = 4000;
 
+import { app } from './app'
+import mongoose from 'mongoose';
+import { DataBaseConnectionError } from "./errors/database-connection-error";
+
+const port = 4000;
 let db = "mongodb+srv://admin:admin1234@albumproject.d3sfxpm.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(db)
-.then(() => {
-    console.log("Connected to MongoDB")
-})
-.catch((err: Error) => {
-    console.log(err)
-})
+const start =  async () => {
 
-app.use(bodyParser.urlencoded({ extended: false}));
+    console.log("Starting up the Auth Server")
 
-app.get('/', (req: Request, res: Response) => {
-    res.send("test")
-})
+    try {
+        console.log("Connecting to Mongo(hpt!) Auth")
+        await mongoose.connect(db);
+        console.log("Connected to Mongo(hpt!) DB ")
+    } catch (err) {
 
-app.use(signupUserRouter);
+        console.log(err);
+        throw new DataBaseConnectionError();
+
+    }
+
 
 app.listen(port, () => {
     console.log(`server running on port ${port}`)
 });
+
+}
+
+start();

@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ticketinggroupyo/groupprojectcommon": "^1.0.0",
+    "@ticketinggroupyo/groupprojectcommon": "^1.0.3",
     "@types/bcrypt": "^5.0.0",
     "@types/node": "^18.15.11",
     "bcrypt": "^5.1.0",

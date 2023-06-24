@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
-import { validateRequest } from '../middlewares/validate-requests';
+import { validateRequest } from '@ticketinggroupyo/groupprojectcommon';
 import { User } from '../models/Users';
 import {body} from 'express-validator';
-import { BadRequestError } from '../errors/bad-request-error';
+import { BadRequestError } from '@ticketinggroupyo/groupprojectcommon';
 import { Password } from '../services/password';
 
 const router = express.Router();

@@ -2,7 +2,7 @@ import { json } from 'body-parser';
 import express, {Request, Response} from "express";
 import bodyParser from "body-parser";
 import { signupRouter } from './routes/signupUser';
-import { errorHandler } from "./middlewares/error-handler";
+import { errorHandler } from '@ticketinggroupyo/groupprojectcommon';
 import { signinRouter } from "./routes/signinUser";
 import { currentUserRouter } from "./routes/current-user";
 
@@ -12,7 +12,7 @@ const port = 4000;
 
 app.use(bodyParser.urlencoded({ extended: false}));
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/api/users', (req: Request, res: Response) => {
     res.send("test")
 })
 

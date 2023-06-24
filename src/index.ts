@@ -1,7 +1,7 @@
 
 import { app } from './app'
 import mongoose from 'mongoose';
-import { DataBaseConnectionError } from "./errors/database-connection-error";
+import { DataBaseConnectionError } from '@ticketinggroupyo/groupprojectcommon';
 
 const port = 4000;
 let db = "mongodb+srv://admin:admin1234@albumproject.d3sfxpm.mongodb.net/?retryWrites=true&w=majority";

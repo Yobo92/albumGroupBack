@@ -1,8 +1,8 @@
 import express, {Request, Response} from 'express';
 import { body, validationResult} from 'express-validator';
 import {User} from '../models/Users'
-import { validateRequest } from '../middlewares/validate-requests';
-import { BadRequestError } from '../errors/bad-request-error';
+import { validateRequest } from '@ticketinggroupyo/groupprojectcommon';
+import { BadRequestError } from '@ticketinggroupyo/groupprojectcommon';
 
 const router = express.Router();
 
